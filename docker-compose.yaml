@@ -11,7 +11,9 @@ services:
     build:
       context: .
     volumes:
-      - ./db.sqlite3:/src/db.sqlite3
+      - app-db:/src/db/
+    command: bash -c "python manage.py migrate && 
+                      gunicorn -b 0.0.0.0"
   celery:
     build:
       context: .
@@ -21,7 +23,7 @@ services:
     depends_on:
       - redis-service
     volumes:
-      - ./db.sqlite3:/src/db.sqlite3
+      - app-db:/src/db/
   celery-beat:
     build:
       context: .
@@ -31,4 +33,7 @@ services:
     depends_on:
       - redis-service
     volumes:
-      - ./db.sqlite3:/src/db.sqlite3
+      - app-db:/src/db/
+
+volumes:
+     app-db: 

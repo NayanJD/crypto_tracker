@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'crypto_tracker.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db/db.sqlite3',
     }
 }
 
@@ -151,3 +151,4 @@ EMAIL_PORT = env.str("EMAIL_PORT", 'redis://127.0.0.1:6379/0')
 MAX_PRICE_THRESHOLD = env.int("MAX_PRICE_THRESHOLD", 10000)
 MIN_PRICE_THRESHOLD = env.int("MIN_PRICE_THRESHOLD", 10000)
 ALERT_EMAIL = env.str("ALERT_EMAIL", '_____')
+WORKER_INTERVAL = env.int("WORKER_INTERVAL_SECS", 30)

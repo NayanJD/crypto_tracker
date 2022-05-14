@@ -12,6 +12,7 @@ logger = get_task_logger(__name__)
 max_price = settings.MAX_PRICE_THRESHOLD
 min_price = settings.MIN_PRICE_THRESHOLD
 alert_email = settings.ALERT_EMAIL
+worker_interval = settings.WORKER_INTERVAL
 
 
 @app.on_after_finalize.connect
@@ -19,7 +20,7 @@ def setup_periodic_tasks(sender, **kwargs):
     # sender.add_periodic_task(5, test.s('hello'), name='every 5')
 
     # Add fetching coin price task every 30s
-    sender.add_periodic_task(30, fetch_and_store_coin_price.s(Coins.Bitcoin.value), name='every 30')
+    sender.add_periodic_task(worker_interval, fetch_and_store_coin_price.s(Coins.Bitcoin.value), name='every 30')
 
 
 # @app.task(name='test')
