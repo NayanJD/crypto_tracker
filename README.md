@@ -34,3 +34,10 @@ EMAIL_PORT='2525'
 
 The interval for fetching crypto price and alerting can be configured by setting `WORKER_INTERVAL_SECS` in .env
 
+
+`IMPORTANT NOTE`: After changing env vars, you need to do below once:
+
+```
+ docker-compose up --build
+```
+
