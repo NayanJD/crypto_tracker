@@ -41,3 +41,4 @@ class Price(models.Model):
 
     class Meta:
         db_table = "price"
+        ordering = ["created_at"]

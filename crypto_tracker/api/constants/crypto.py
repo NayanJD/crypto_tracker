@@ -13,6 +13,14 @@ def parseCoin(coin_str: str):
     
     raise ValueError("Could not parse string as Coins enum")
 
+symbol_to_coin_map = {
+    'btc': Coins.Bitcoin.value
+}
+
+coin_to_symbol_map = {
+    Coins.Bitcoin.value: 'btc'
+}
+
 class Currencies(enum.Enum):
     '''
     Supported currencies
