@@ -141,3 +141,13 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 100
 }
+
+EMAIL_HOST = env.str("EMAIL_HOST", 'redis://127.0.0.1:6379/0')
+EMAIL_HOST_USER = env.str("EMAIL_HOST_USER", 'redis://127.0.0.1:6379/0')
+EMAIL_HOST_PASSWORD = env.str("EMAIL_HOST_PASSWORD", 'redis://127.0.0.1:6379/0')
+EMAIL_PORT = env.str("EMAIL_PORT", 'redis://127.0.0.1:6379/0')
+
+
+MAX_PRICE_THRESHOLD = env.int("MAX_PRICE_THRESHOLD", 10000)
+MIN_PRICE_THRESHOLD = env.int("MIN_PRICE_THRESHOLD", 10000)
+ALERT_EMAIL = env.str("ALERT_EMAIL", '_____')
