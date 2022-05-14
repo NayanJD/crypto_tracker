@@ -31,3 +31,6 @@ EMAIL_HOST_USER=
 EMAIL_HOST_PASSWORD=
 EMAIL_PORT='2525'
 ```
+
+The interval for fetching crypto price and alerting can be configured by setting `WORKER_INTERVAL_SECS` in .env
+
