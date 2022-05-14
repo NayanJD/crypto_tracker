@@ -8,6 +8,7 @@ from rest_framework.pagination import LimitOffsetPagination, PageNumberPaginatio
 from crypto_tracker.api.models import Price
 from crypto_tracker.api.serializer import PriceSerializer
 from crypto_tracker.api.constants.crypto import symbol_to_coin_map
+from dateutil.parser import parse
 
 
 class PriceView(viewsets.GenericViewSet, mixins.ListModelMixin):
@@ -21,11 +22,13 @@ class PriceView(viewsets.GenericViewSet, mixins.ListModelMixin):
     def get_queryset(self):
         now = timezone.now()
 
-        today = datetime(year=now.year, month=now.month, day=now.day, tzinfo=now.tzinfo)
+        date = self.request.GET.get('date', None)
+        if date:
+            day = parse(date, dayfirst=True)
+        else:
+            day = datetime(year=now.year, month=now.month, day=now.day, tzinfo=now.tzinfo)
 
-        print('today: ', today)
-
-        queryset = Price.objects.filter(created_at__gte=today, created_at__lt=today + timedelta(days=1))
+        queryset = Price.objects.filter(created_at__gte=day, created_at__lt=day + timedelta(days=1))
 
         coin_str = self.kwargs.get('symbol', None)
 
