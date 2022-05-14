@@ -12,7 +12,7 @@ def setup_periodic_tasks(sender, **kwargs):
     # sender.add_periodic_task(5, test.s('hello'), name='every 5')
 
     # Add fetching coin price task every 30s
-    sender.add_periodic_task(30, fetch_and_store_coin_price.s(Coins.Bitcoin.value), name='every 5')
+    sender.add_periodic_task(30, fetch_and_store_coin_price.s(Coins.Bitcoin.value), name='every 30')
 
 
 # @app.task(name='test')
