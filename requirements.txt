@@ -1,1 +1,4 @@
+celery==5.2.6
 Django==4.0.4
+environ==1.0
+pycoingecko==2.2.0

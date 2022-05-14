@@ -1,6 +1,6 @@
 import abc
 from pycoingecko import CoinGeckoAPI
-from crypto_tracker.api.constants.cypto import Coins, Currencies
+from crypto_tracker.api.constants.crypto import Coins, Currencies
 
 class CryptoListing(metaclass=abc.ABCMeta):
     '''

@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-from crypto_tracker.api.constants.cypto import Coins
+from crypto_tracker.api.constants.crypto import Coins
 
 def seed_coins(apps, schema_editor):
     Coin = apps.get_model("api", "Coin")
