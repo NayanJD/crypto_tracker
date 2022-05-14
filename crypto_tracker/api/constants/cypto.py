@@ -4,7 +4,7 @@ class Coins(enum.Enum):
     '''
     Supported crypto coins
     '''
-    bitcoin = 'bitcoin'
+    Bitcoin = 'bitcoin'
 
 class Currencies(enum.Enum):
     '''
